@@ -1,0 +1,107 @@
+mixin pageTop()
+    // start
+    +b.testTopLine.container
+        a.nav(href="#") &#8592
+    // end
+
+mixin filters()
+    .row.filters
+        .col-2
+            h4 Фильтры
+        .col-2
+            p.orange Сбросить
+        .col-2
+            p.grey Сортировать по:
+        .col
+            h4 Цене &#8593
+
+//- ?????
+mixin in-c(typ="checkbox", text, name= typ ) 
+    +b.LABEL.custom-input.form-check
+        +e.INPUT.input.form-check-input.custom(name=name, type=typ)&attributes(attributes)
+        if block
+            block 
+        else
+            +e.SPAN.text.form-check-label= text
+
+mixin filterSettings()
+    .row 
+        h5 &#8595 Навесы
+    .row
+        +in-c('checkbox', 'Для машин')
+    .row
+        +in-c('checkbox', 'К дому')
+    .row
+        +in-c('checkbox', 'Для бассейна')
+    .row
+        +in-c('checkbox', 'Кованые')
+    .row
+        +in-c('checkbox', 'Другие типы навесов')
+    .row 
+        h5 &#8595 Прочие конструкции
+    .row
+        +in-c('checkbox', 'Комплекты гаражей')
+    .row
+        +in-c('checkbox', 'Фермы')
+    .row
+        +in-c('checkbox', 'Ангары')
+    .row
+        +in-c('checkbox', 'Гаражи из СП')
+    .row
+        +in-c('checkbox', 'Козырьки')
+    .row 
+        h5 &#8595 Длина
+    .row
+        .col
+            .row
+                +in-c('checkbox', '1м')
+            .row
+                +in-c('checkbox', '2m')
+            .row
+                +in-c('checkbox', '17m')
+            .row
+                +in-c('checkbox', '3m')
+            .row
+                +in-c('checkbox', '15m')
+        .col
+            .row
+                +in-c('checkbox', '1м')
+            .row
+                +in-c('checkbox', '2m')
+            .row
+                +in-c('checkbox', '17m')
+            .row
+                +in-c('checkbox', '3m')
+            .row
+                +in-c('checkbox', '15m')
+    .row 
+        h5 &#8595 Ширина
+    .row
+        .col
+            .row
+                +in-c('checkbox', '1м')
+            .row
+                +in-c('checkbox', '2m')
+            .row
+                +in-c('checkbox', '17m')
+            .row
+                +in-c('checkbox', '3m')
+            .row
+                +in-c('checkbox', '15m')
+        .col
+            .row
+                +in-c('checkbox', '1м')
+            .row
+                +in-c('checkbox', '2m')
+            .row
+                +in-c('checkbox', '17m')
+            .row
+                +in-c('checkbox', '3m')
+            .row
+                +in-c('checkbox', '15m')
+
+mixin cards()
+    .card 
+        img.card-img-top(src="card.jpg")
+        .card-body
+            h5.card-title Навес 4 Х 8 из сотового поликарбоната

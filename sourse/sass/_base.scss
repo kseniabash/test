@@ -1,54 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
+.header-and-arrow, .portfolio, .contacts {
+	font-family: 'Montserrat';
+	h1, h2, h3, h4, h5, h6 {
+		font-style: normal;
+		font-weight: 700;
+		line-height: 100%;
+	}
+	svg {
+		stroke: black; 
+		color: transparent;
+	}
+}
 .head {
 	margin-bottom: 88px;
+}
+
+.get-answer {
+	input, .btn {
+		width: 100%;
+		&.question {
+			height: 100%;
+			min-height: 48px;
+		}
+		&.margin {
+			margin-top: 20px;
+		}
+	}
+	input {
+		height: 48px;
+		border: 1px solid #C1D5F1;
+		border-radius: 8px;
+		text-align: left;
+	}
 }
 .portfolio {
 	&__filter-control {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		p, h4, a {
 			margin-bottom: 0;
 			display: block;
 			margin-right: 33px;
 		}
-		margin-top: 48px;
+		padding-top: 48px;
+		h4 {
+			font-size: 24px;
+		}
+		&.sort {
+			margin-bottom: 20px;
+		}
+	}
+	&__btn.btn {
+		border: none;
+		background-color: white;
+		border-color: none;
+		--bs-btn-padding-y: 0;
+	}
+	&__input {
+		&.form-control {
+			padding: 0;
+			border: none;
+			font-weight: 700;
+			font-size: 18px;
+			line-height: 130%;
+		}
 	}
 	&__cards {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-between;
+		.row {
+			--bs-gutter-x: 32px;
+    		--bs-gutter-y: 32px;
+		}
+	}
+}
+.custom-input {
+	&.form-check {
+		padding-bottom: 11px; 
+	}
+}
+.form-check {
+	&-input:checked {
+		background-color: #FFC23C;
+		border-color: #FFC23C;
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3E%3C/svg%3E") !important;
 	}
 }
 .item-title {
 	display: flex;
 	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 18px;
 	h5 {
-		margin-left: 20px;
+		margin: 0 20px 0;
 	}
 } 
 .header-and-arrow {
 	h1 {
-		margin: 46px 0 48px;
+		padding: 46px 0 48px;
+		font-size: 60px;
+		color:#35455C;
 	}
 }
 .card {
-	width: 48%;
 	min-width: 250px;
 	padding: 24px;
-	border: 1px solid #F2F6FC;
-	box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.09);
 	border-radius: 20px;
+	border: 1px solid #F2F6FC;
+	transition-duration: 0.7s;
+	&:hover {
+		box-shadow: 0px 10px 13px rgba(0, 0, 0, 0.09);
+	}
 	p {
 		font-size: 12px;
+	}
+	&__card-body {
+		table {
+			width: 100%;
+			.name {
+				width: 33%;
+			}
+			.value {
+				color: #2C3440;
+			}
+		}
+		tr {
+			border-bottom: 1px solid #C1D5F1;
+		}
+		h4 {
+			margin-top: 24px;
+		}
+		h5 {
+			margin-top: 16px;
+		}
 	}
 	&__card-bottom {
 		display: flex;
 		justify-content: space-between;
-		.btn {
-			background-color: #FFC23C;
-			border-radius: 1000px;
-		} 
+		padding-top: 24px;
 	}
 }
+.btn {
+	background-color: #FFC23C;
+	border-radius: 1000px;
+	font-weight: 600;
+} 
 
 .testTopLine {
 	font-size: x-large;
@@ -89,9 +184,35 @@
 .contacts {
 	&__headers {
 		text-align: center;
+		padding-top: 132px;
+		h1 {
+			font-size: 48px;
+			padding: 24px 0 78px;
+		}
+	}
+}
+.clip {
+	display: inline-block;
+	text-align: center;
+	// vertical-align: middle;
+	padding: 12px 16px 12px;
+	font-weight: 600;
+	font-size: 12px;
+	background-color: #F2F6FC;
+	border-radius: 1000px;
+	margin: 4px 0 4px !important;
+	&.inline-block {
+		p {
+			padding: 0;
+			display: inline;
+		}
 	}
 }
 .info {
+	.row.upper {
+		--bs-gutter-y: 80px;
+	}
+	font-family: 'Montserrat' !important;
 	iframe {
 		width: 100%;
 		height: 100%;
@@ -100,19 +221,24 @@
 		display: flex;
 		align-items: center;
 	}
-	&__offices {
+	&__socials {
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 105%;
 		p {
-			font-weight: 600;
-			font-size: 12px;
-			line-height: 100%;
-			background-color: #F2F6FC;
-			border-radius: 1000px;
-			text-align: center;
-			// vertical-align: center !important;
-			width: 220px;
-			height: 36px;
-			margin: 4px 0 4px !important;
+			padding-top: 16px;
+			& + p {
+				display: inline;
+			}
 		}
+	}
+	&__email {
+		p {
+			padding-top: 7px;
+		}
+	}
+	h5 {
+		padding-top: 30px;
 	}
 	p {
 		margin: 0 5px 0;
@@ -123,9 +249,13 @@
 		line-height: 150%;
 	}
 	.opened {
-		font-weight: 500;
+		font-weight: 500 !important;
 		font-size: 10px;
-		line-height: 100%;
+		width: 54px;
+		height: 14px;
+		text-align: center;
+		border-radius: 3px;
+		margin-left: 30px;
 		background-color: #B8B8B8;
 		color: white;
 	}

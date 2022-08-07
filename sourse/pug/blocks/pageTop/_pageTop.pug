@@ -1,6 +1,7 @@
 mixin pageTop()
     +b.header-and-arrow
-        +icon("arrow-left")
+        a(href="#")
+            +icon("arrow-left")
         h1 Портфолио
 
 mixin filters()
@@ -129,12 +130,12 @@ mixin card(items)
 mixin pagination(...pageindex)
     .pagination 
         .center
-            .box.nav 
+            a.box.nav(href="#")
                 p &#9668
             each index in pageindex
-                .box.page(tabindex="1")
+                a.box.page(tabindex="1", href="#")
                     p=index
-            .box.nav
+            a.box.nav(href="#")
                 p &#9658
 
 

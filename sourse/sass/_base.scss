@@ -106,6 +106,9 @@ body {
 		}
 	}
 }
+a {
+	text-decoration: none;
+}
 .pagination {
 	display: flex;
 	justify-content: center;
@@ -133,9 +136,11 @@ body {
 		}
 		&.page {
 			border: 1px solid rgba(44, 52, 64, 0.5);
-			&:focus {
+			&:focus, &:hover {
 				background-color: #FFC23C;
 			}
+			transition-duration: 0.4s;
+			color: #000000;
 		}
 	}
 }

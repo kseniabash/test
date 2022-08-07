@@ -37,7 +37,8 @@ mixin contacts()
     +b.info 
         .row.upper
             .col-lg-8
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2230.3396413417436!2d37.48216231535052!3d56.01279037937823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b53ceda073c63f%3A0x12b84ec8d64f873a!2z0YPQuy4g0JzQsNGP0LrQvtCy0YHQutC-0LPQviwgNSwg0JvQvtCx0L3Rjywg0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMTQxNzMw!5e0!3m2!1sru!2sru!4v1659635051725!5m2!1sru!2sru" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=1c6bef1d-fdc1-4848-b4a3-de1c31ace16f" type="text/javascript"></script>
+                +e.map#map-widget
             .col-lg-4
                 +e.place-and-time 
                     +icon('location')
@@ -94,13 +95,14 @@ mixin item-col-1(title, ...items)
 mixin item-col-2(title, ...items1)
     .filter-section
         +item-title(title)
-        .row 
-            .col-3 
-                each item in items1 
-                    +in-c('checkbox', item)
-            .col-3 
-                each item in items1 
-                    +in-c('checkbox', item)
+        .filter-checkbox
+            .row 
+                .col-3 
+                    each item in items1 
+                        +in-c('checkbox', item)
+                .col-3 
+                    each item in items1 
+                        +in-c('checkbox', item)
 
 
 mixin item-title(title) 

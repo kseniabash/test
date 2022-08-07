@@ -110,10 +110,11 @@ body {
 	display: flex;
 	justify-content: center;
 	margin-top: 60px;
-	div {
+	.center {
 		width: 40%;
 		display: flex;
 		justify-content: space-between;
+		min-width: 256px;
 	}
 	.box {
 		width: 32px;

@@ -25,11 +25,13 @@ mixin filters()
                         +card(items4)
                         +card(items4)
                         +card(items4)
+                    +pagination(...pageindex)
+
 
 mixin contacts()
     +b.contacts
         +e.headers 
-            h2.grey Контакты
+            h2 Контакты
             h1 Позвоните или посетите наш офис на производстве
     +b.info 
         .row.upper
@@ -47,8 +49,8 @@ mixin contacts()
                     p +7 495 256 30 67
                     p +7 495 256 30 67
                     +clip-icon-text('whatsapp', 'Whatsapp')
-                    +clip-icon('instagram')
-                    +clip-icon('fb')
+                    +clip-icon('insta-colored')
+                    +clip-icon('yt-colored')
                     .btn Обратный звонок
 
                 +e.email 
@@ -63,7 +65,7 @@ mixin contacts()
                     +clip-text('Лобня, улица Маяковского, д. 5')
                     +clip-text('Лобня, улица Маяковского, д. 5')
             .col-lg-8.get-answer
-                input.question(type='text', placeholder="Вопрос")
+                textarea.question(placeholder="Вопрос")
             .col-lg-4.get-answer 
                 input(type='tel', placeholder="Телефон")
                 .btn.margin Получить консультацию
@@ -82,20 +84,22 @@ mixin clip-icon(icon)
         +icon(icon)
 
 mixin item-col-1(title, ...items)
-    +item-title(title)
-    .filter-checkbox
-        each item in items 
-            +in-c('checkbox', item)
+    .filter-section
+        +item-title(title)
+        .filter-checkbox
+            each item in items 
+                +in-c('checkbox', item)
 
 mixin item-col-2(title, ...items1)
-    +item-title(title)
-    .row 
-        .col-3 
-            each item in items1 
-                +in-c('checkbox', item)
-        .col-3 
-            each item in items1 
-                +in-c('checkbox', item)
+    .filter-section
+        +item-title(title)
+        .row 
+            .col-3 
+                each item in items1 
+                    +in-c('checkbox', item)
+            .col-3 
+                each item in items1 
+                    +in-c('checkbox', item)
 
 
 mixin item-title(title) 
@@ -122,7 +126,16 @@ mixin card(items)
                 h4 150 400&#8381
                 .btn Подробнее
 
-
+mixin pagination(...pageindex)
+    .pagination 
+        div
+            .box.nav 
+                p &#9668
+            each index in pageindex
+                .box.page(tabindex="1")
+                    p=index
+            .box.nav
+                p &#9658
 
 
 

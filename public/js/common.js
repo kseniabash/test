@@ -402,8 +402,9 @@ if (document.readyState !== 'loading') {
 
 ymaps.ready(function () {
 	var myMap = new ymaps.Map('map-widget', {
-		center: [55.751574, 37.573856],
-		zoom: 9
+		center: [55.999017, 37.223832],
+		zoom: 16,
+		controls: []
 	}, {
 		searchControlProvider: 'yandex#search'
 	}),
@@ -421,7 +422,7 @@ ymaps.ready(function () {
 			// Необходимо указать данный тип макета.
 			iconLayout: 'default#image',
 			// Своё изображение иконки метки.
-			iconImageHref: 'images/myIcon.gif',
+			iconImageHref: '../img/svg/map-icon.svg',
 			// Размеры метки.
 			iconImageSize: [30, 42],
 			// Смещение левого верхнего угла иконки относительно
@@ -452,5 +453,5 @@ ymaps.ready(function () {
 
 	myMap.geoObjects
 		.add(myPlacemark)
-		.add(myPlacemarkWithContent);
+	// 	.add(myPlacemarkWithContent);
 });

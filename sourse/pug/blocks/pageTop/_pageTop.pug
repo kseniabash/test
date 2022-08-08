@@ -41,11 +41,13 @@ mixin contacts()
                 +e.map#map-widget
             .col-lg-4
                 +e.place-and-time 
-                    +icon('location')
-                    p.info-text Москва и МО
-                    +icon('filter-arrow')
-                    p.opened Открыто
-                    p.info-text Пн-Вс 9:00-21:00
+                    +e.place
+                        +icon('location')
+                        p.info-text Москва и МО
+                        +icon('filter-arrow')
+                    +e.time
+                        p.opened Открыто
+                        p.info-text Пн-Вс 9:00-21:00
                 +e.socials 
                     h5 Телефоны
                     p +7 495 256 30 67
@@ -69,8 +71,52 @@ mixin contacts()
             .col-lg-8.get-answer
                 textarea.question(placeholder="Вопрос")
             .col-lg-4.get-answer 
-                input(type='tel', placeholder="Телефон")
+                input(type='tel' placeholder="Телефон")
                 .btn.margin Получить консультацию
+
+mixin footer() 
+    +b.footer.container-fluid
+        .row 
+            +e.column.col-lg-4 
+                +icon("logo")
+                .work 
+                    p Работаем с 2012 года
+                .btn Вызвать замерщика
+            +e.column.col-lg-2
+                h5 Компания
+                a(href="#") Калькулятор
+                a(href="#") Портфолио
+                a(href="#") Отзывы
+                a(href="#") Блог
+            +e.column.col-lg-2 
+                h5 Навесы
+                a(href="#") Для авто
+                a(href="#") Для парковки
+                a(href="#") К дому
+                a(href="#") Беседка
+                a(href="#") Для дачи 
+                a(href="#") Кольцо и козырек
+                a(href="#") Для бассейна
+                a(href="#") Ангар
+            +e.column.col-lg-4
+                h5 Производим также
+                a(href="#") Бетонные площадки
+                a(href="#") Заезды на участок
+                a(href="#") Укладка тротуарной плитки
+                a(href="#") Ворота откатные и распашные
+                a(href="#") Заборы и ограждения
+                a(href="#") Кованые изделия
+                a(href="#") Крыльцо
+                a(href="#") Лестница в дом
+                a(href="#") Лестница на улице
+                a(href="#") Ангары
+                a(href="#") Изготовление металлоконструкций
+                a(href="#") Беседки
+            +e.policy 
+                p <span>© 2022</span> Политика конфиденцильности
+                p.text Данный сайт носит информационный характер и не является публичной офертой, которая определяется положениями статьи 437 (2) Гражданского кодекса РФ. Для получения подробной информации о наличии и стоимости указанных товаров и услуг, обращайтесь к нашим менеджерам или укажите телефон, чтобы мы перезвонили вам.
+
+
 
 mixin clip-text(text)
     .clip 
@@ -135,7 +181,7 @@ mixin pagination(...pageindex)
             a.box.nav(href="#")
                 p &#9668
             each index in pageindex
-                a.box.page(tabindex="1", href="#")
+                a.box.page(tabindex="1" href="#")
                     p=index
             a.box.nav(href="#")
                 p &#9658
